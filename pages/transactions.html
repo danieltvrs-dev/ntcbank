@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>NTC Bank — Extrato</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/transactions.css" />
+</head>
+<body>
+<div id="app">
+<div class="transactions-screen">
+
+  <!-- Hero -->
+  <div class="trans-hero">
+    <div class="trans-grid"></div>
+
+    <div class="trans-hero-header animate-fade-down">
+      <button class="trans-icon-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <button class="trans-icon-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="trans-hero-center animate-fade-up delay-1">
+      <div class="trans-balance-label">
+        <span class="trans-balance-label-dot">$</span>
+        Saldo disponível
+      </div>
+      <h2 class="trans-balance-amount">R$ 4.850,00</h2>
+      <p class="trans-balance-date">13 de Abril, 2026</p>
+    </div>
+
+    <div class="trans-card-info animate-fade-up delay-2">
+      <p class="trans-card-number">4201  3049  2800  9815</p>
+      <div class="trans-card-fields">
+        <div class="trans-card-field">
+          <label>Expira</label>
+          <span>02/28</span>
+        </div>
+        <div class="trans-card-field">
+          <label>CVC</label>
+          <span>●●●</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumo -->
+  <div class="trans-summary animate-fade-up delay-2">
+    <div class="summary-card">
+      <p class="summary-label">Receita</p>
+      <div class="summary-value income">
+        <div class="summary-icon income">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 15 12 9 18 15"/>
+          </svg>
+        </div>
+        R$ 2.400,00
+      </div>
+    </div>
+    <div class="summary-card">
+      <p class="summary-label">Despesa</p>
+      <div class="summary-value expense">
+        <div class="summary-icon expense">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+        R$ 307,40
+      </div>
+    </div>
+  </div>
+
+  <!-- Movimentos -->
+  <div class="movements-header animate-fade-up delay-3">
+    <h3 class="movements-title">Detalhe dos movimentos</h3>
+    <div class="movements-filter">
+      Semanal
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="trans-list animate-fade-up delay-3">
+
+    <div class="trans-item">
+      <div class="trans-item-icon">🛒</div>
+      <div class="trans-item-info">
+        <p class="trans-item-name">Supermercado</p>
+        <p class="trans-item-date">Hoje, 13 Abr</p>
+      </div>
+      <div class="trans-item-right">
+        <span class="trans-item-amount debit">-R$ 187,50</span>
+        <div class="trans-arrow debit">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="trans-item">
+      <div class="trans-item-icon">💼</div>
+      <div class="trans-item-info">
+        <p class="trans-item-name">Salário</p>
+        <p class="trans-item-date">13 Abr, 08:00</p>
+      </div>
+      <div class="trans-item-right">
+        <span class="trans-item-amount credit">+R$ 2.400,00</span>
+        <div class="trans-arrow credit">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="6 15 12 9 18 15"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="trans-item">
+      <div class="trans-item-icon">⚡</div>
+      <div class="trans-item-info">
+        <p class="trans-item-name">Conta de Luz</p>
+        <p class="trans-item-date">12 Abr</p>
+      </div>
+      <div class="trans-item-right">
+        <span class="trans-item-amount debit">-R$ 98,00</span>
+        <div class="trans-arrow debit">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="trans-item">
+      <div class="trans-item-icon">🎵</div>
+      <div class="trans-item-info">
+        <p class="trans-item-name">Spotify</p>
+        <p class="trans-item-date">10 Abr</p>
+      </div>
+      <div class="trans-item-right">
+        <span class="trans-item-amount debit">-R$ 21,90</span>
+        <div class="trans-arrow debit">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="trans-item">
+      <div class="trans-item-icon">🎮</div>
+      <div class="trans-item-info">
+        <p class="trans-item-name">Steam</p>
+        <p class="trans-item-date">08 Abr</p>
+      </div>
+      <div class="trans-item-right">
+        <span class="trans-item-amount debit">-R$ 89,90</span>
+        <div class="trans-arrow debit">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Navbar -->
+<nav class="bottom-navbar">
+  <div class="nav-item" onclick="window.location.href='dashboard.html'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    <span class="nav-label">Início</span>
+  </div>
+  <div class="nav-item active">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="8" y1="6" x2="21" y2="6"/>
+      <line x1="8" y1="12" x2="21" y2="12"/>
+      <line x1="8" y1="18" x2="21" y2="18"/>
+      <line x1="3" y1="6" x2="3.01" y2="6"/>
+      <line x1="3" y1="12" x2="3.01" y2="12"/>
+      <line x1="3" y1="18" x2="3.01" y2="18"/>
+    </svg>
+    <span class="nav-label">Extrato</span>
+  </div>
+  <div class="nav-item" onclick="window.location.href='card.html'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <line x1="2" y1="10" x2="22" y2="10"/>
+    </svg>
+    <span class="nav-label">Cartão</span>
+  </div>
+  <div class="nav-item" onclick="window.location.href='profile.html'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
+    </svg>
+    <span class="nav-label">Perfil</span>
+  </div>
+</nav>
+
+</div>
+</body>
+</html>

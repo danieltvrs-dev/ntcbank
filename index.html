@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>NTC Bank</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+<div id="app">
+<div class="login-screen">
+
+  <!-- Fundo -->
+  <div class="login-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="login-grid"></div>
+
+  <!-- Logo -->
+  <div class="login-logo-bar animate-fade-down">
+    <div class="login-logo">
+      <img class="login-logo-img" src="assets/images/logo.png" alt="NTC Bank" />
+      <span class="login-logo-name">NTC Bank</span>
+    </div>
+    <span class="login-lang">PT-BR</span>
+  </div>
+
+  <!-- Hero cards -->
+  <div class="login-hero animate-scale-in delay-1">
+    <div class="hero-card-stack">
+      <div class="hero-card-back"></div>
+      <div class="hero-card-mid"></div>
+      <div class="hero-card-main">
+        <div class="hero-card-top">
+          <span class="hero-card-logo">NTC Bank</span>
+          <div class="hero-card-chip"></div>
+        </div>
+        <div class="hero-card-balance">R$ ••••••</div>
+        <div class="hero-card-bottom">
+          <span class="hero-card-num">●●●● ●●●● ●●●●</span>
+          <span class="hero-card-holder">••••••••</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo inferior -->
+  <div class="login-bottom animate-fade-up delay-2">
+
+    <h1 class="login-headline">
+      Controle seu<br><span>dinheiro</span> com<br>liberdade.
+    </h1>
+    <p class="login-sub">
+      Acesse sua conta e gerencie suas finanças de qualquer lugar.
+    </p>
+
+    <div class="login-form-glass">
+
+      <div class="input-glass-wrapper">
+        <svg class="input-glass-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <input class="input-glass" type="text" placeholder="Número da conta" maxlength="8" />
+      </div>
+
+      <div class="input-glass-wrapper">
+        <svg class="input-glass-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <input class="input-glass" type="password" placeholder="Senha" id="password-input" />
+        <span class="input-glass-action" onclick="togglePassword()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="login-row">
+        <label class="checkbox-glass">
+          <input type="checkbox" />
+          Lembrar-me
+        </label>
+        <span class="forgot-glass">Esqueci a senha</span>
+      </div>
+
+    </div>
+
+    <button class="btn-login" onclick="window.location.href='pages/dashboard.html'">
+      Entrar
+    </button>
+
+    <div class="login-divider" style="margin-top: 20px;">ou</div>
+
+    <p class="login-footer-text" style="margin-top: 16px;">
+      Não tem conta? <a onclick="window.location.href='pages/cadastro.html'">Cadastre-se grátis</a>
+    </p>
+
+  </div>
+
+</div>
+</div>
+
+<script>
+  function togglePassword() {
+    const input = document.getElementById('password-input');
+    input.type = input.type === 'password' ? 'text' : 'password';
+  }
+</script>
+</body>
+</html>

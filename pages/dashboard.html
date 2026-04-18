@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>NTC Bank — Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- Fundo -->
+  <div class="dash-bg">
+    <div class="dash-orb dash-orb-1"></div>
+    <div class="dash-orb dash-orb-2"></div>
+  </div>
+  <div class="dash-grid"></div>
+
+  <div class="dashboard-screen">
+  <div class="dash-content">
+
+    <!-- Header -->
+    <header class="dash-header animate-fade-down">
+      <div class="dash-header-left">
+        <div class="dash-avatar">D</div>
+        <div class="dash-greeting">
+          <span>Bom dia,</span>
+          <strong>Daniel</strong>
+        </div>
+      </div>
+      <div class="dash-header-right">
+        <button class="dash-icon-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <button class="dash-icon-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Balance Card -->
+    <div class="balance-card animate-fade-up delay-1">
+      <div class="balance-top">
+        <span class="balance-label">Saldo disponível</span>
+        <span class="balance-eye">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+      </div>
+      <h2 class="balance-amount"><span>R$</span>4.850,00</h2>
+      <div class="balance-footer">
+        <span class="balance-account">●●●● ●●●● 4821</span>
+        <span class="balance-trend">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"/>
+          </svg>
+          +2,4%
+        </span>
+      </div>
+    </div>
+
+    <!-- Ações rápidas -->
+    <div class="quick-actions animate-fade-up delay-2">
+      <div class="action-btn">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </div>
+        <span class="action-label">Depositar</span>
+      </div>
+      <div class="action-btn">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </div>
+        <span class="action-label">Transferir</span>
+      </div>
+      <div class="action-btn">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <span class="action-label">Pagar</span>
+      </div>
+      <div class="action-btn">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </div>
+        <span class="action-label">Sacar</span>
+      </div>
+    </div>
+
+    <!-- Gráfico -->
+    <div class="section-header animate-fade-up delay-3">
+      <h3 class="section-title">Gastos da semana</h3>
+      <span class="section-link">Ver detalhes</span>
+    </div>
+
+    <div class="chart-card animate-fade-up delay-3">
+      <div class="chart-bars">
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:40px"></div>
+          <span class="chart-day">Seg</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:60px"></div>
+          <span class="chart-day">Ter</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:30px"></div>
+          <span class="chart-day">Qua</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar active" style="height:75px"></div>
+          <span class="chart-day">Qui</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:50px"></div>
+          <span class="chart-day">Sex</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:20px"></div>
+          <span class="chart-day">Sáb</span>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar" style="height:10px"></div>
+          <span class="chart-day">Dom</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transações -->
+    <div class="section-header animate-fade-up delay-4">
+      <h3 class="section-title">Transações recentes</h3>
+      <span class="section-link">Ver todas</span>
+    </div>
+
+    <div class="transactions-list animate-fade-up delay-4">
+      <div class="transaction-item">
+        <div class="transaction-icon">🛒</div>
+        <div class="transaction-info">
+          <p class="transaction-name">Supermercado</p>
+          <p class="transaction-date">Hoje, 09:32</p>
+        </div>
+        <span class="transaction-amount debit">-R$ 187,50</span>
+      </div>
+      <div class="transaction-item">
+        <div class="transaction-icon">💼</div>
+        <div class="transaction-info">
+          <p class="transaction-name">Salário</p>
+          <p class="transaction-date">13 Abr, 08:00</p>
+        </div>
+        <span class="transaction-amount credit">+R$ 2.400,00</span>
+      </div>
+      <div class="transaction-item">
+        <div class="transaction-icon">⚡</div>
+        <div class="transaction-info">
+          <p class="transaction-name">Conta de Luz</p>
+          <p class="transaction-date">12 Abr, 14:15</p>
+        </div>
+        <span class="transaction-amount debit">-R$ 98,00</span>
+      </div>
+      <div class="transaction-item">
+        <div class="transaction-icon">🎵</div>
+        <div class="transaction-info">
+          <p class="transaction-name">Spotify</p>
+          <p class="transaction-date">10 Abr, 00:00</p>
+        </div>
+        <span class="transaction-amount debit">-R$ 21,90</span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="bottom-navbar">
+    <div class="nav-item active">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="nav-label">Início</span>
+    </div>
+    <div class="nav-item" onclick="window.location.href='transactions.html'">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="8" y1="6" x2="21" y2="6"/>
+        <line x1="8" y1="12" x2="21" y2="12"/>
+        <line x1="8" y1="18" x2="21" y2="18"/>
+        <line x1="3" y1="6" x2="3.01" y2="6"/>
+        <line x1="3" y1="12" x2="3.01" y2="12"/>
+        <line x1="3" y1="18" x2="3.01" y2="18"/>
+      </svg>
+      <span class="nav-label">Extrato</span>
+    </div>
+    <div class="nav-item" onclick="window.location.href='card.html'">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <line x1="2" y1="10" x2="22" y2="10"/>
+      </svg>
+      <span class="nav-label">Cartão</span>
+    </div>
+    <div class="nav-item" onclick="window.location.href='profile.html'">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="nav-label">Perfil</span>
+    </div>
+  </nav>
+
+</div>
+</body>
+</html>

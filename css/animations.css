@@ -1,0 +1,74 @@
+/* ============================================
+   NTC BANK — Animations
+   ============================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: var(--shadow-glow-sm); }
+  50%       { box-shadow: var(--shadow-glow); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Classes utilitárias --- */
+.animate-fade-in    { animation: fadeIn    var(--transition-slow) ease both; }
+.animate-fade-down  { animation: fadeDown  var(--transition-slow) ease both; }
+.animate-fade-up    { animation: fadeUp    var(--transition-slow) ease both; }
+.animate-scale-in   { animation: scaleIn   var(--transition-slow) ease both; }
+.animate-slide-right { animation: slideInRight var(--transition-slow) ease both; }
+.animate-slide-left  { animation: slideInLeft  var(--transition-slow) ease both; }
+.animate-pulse      { animation: pulse 2s ease infinite; }
+.animate-glow       { animation: glow  2s ease infinite; }
+.animate-spin       { animation: spin  1s linear infinite; }
+
+/* --- Delays --- */
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 200ms; }
+.delay-3 { animation-delay: 300ms; }
+.delay-4 { animation-delay: 400ms; }
+.delay-5 { animation-delay: 500ms; }
+
+/* --- Transição de página --- */
+.page-enter {
+  animation: fadeUp var(--transition-base) ease both;
+}
+.page-exit {
+  animation: fadeIn var(--transition-fast) ease reverse both;
+}
