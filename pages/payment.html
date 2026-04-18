@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>NTC Bank — Pagamento</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/payment.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- Fundo -->
+  <div class="payment-bg">
+    <div class="payment-orb-1"></div>
+    <div class="payment-orb-2"></div>
+  </div>
+  <div class="payment-grid"></div>
+
+  <div class="payment-screen">
+  <div class="payment-content">
+
+    <!-- Header -->
+    <header class="payment-header animate-fade-down">
+      <button class="payment-back" onclick="window.location.href='dashboard.html'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <h1 class="payment-title">Enviar Dinheiro</h1>
+      <div class="payment-header-right"></div>
+    </header>
+
+    <!-- Busca -->
+    <div class="payment-search animate-fade-down">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input class="search-input" type="text" placeholder="Buscar contato ou chave PIX..." />
+      </div>
+    </div>
+
+    <!-- Contatos -->
+    <p class="contacts-label animate-fade-up delay-1">Recentes</p>
+    <div class="contacts-list animate-fade-up delay-1">
+
+      <div class="contact-item active" onclick="selectContact(this, 'Formiguinha')">
+        <div class="contact-avatar" style="background: linear-gradient(135deg, #EC4899, #BE185D);">F</div>
+        <span class="contact-name">Formiguinha</span>
+      </div>
+
+      <div class="contact-item" onclick="selectContact(this, 'Lucas')">
+        <div class="contact-avatar" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9);">L</div>
+        <span class="contact-name">Lucas</span>
+      </div>
+
+      <div class="contact-item" onclick="selectContact(this, 'Maria')">
+        <div class="contact-avatar" style="background: linear-gradient(135deg, #F59E0B, #D97706);">M</div>
+        <span class="contact-name">Maria</span>
+      </div>
+
+      <div class="contact-item" onclick="selectContact(this, 'Carlos')">
+        <div class="contact-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">C</div>
+        <span class="contact-name">Carlos</span>
+      </div>
+
+      <div class="contact-item" onclick="selectContact(this, 'Ana')">
+        <div class="contact-avatar" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">A</div>
+        <span class="contact-name">Ana</span>
+      </div>
+
+    </div>
+
+    <!-- Display valor -->
+    <div class="amount-display animate-fade-up delay-2">
+      <p class="amount-label">Valor a enviar</p>
+      <div class="amount-value">
+        <span class="amount-currency">R$</span>
+        <span id="amount-display">0</span>
+      </div>
+      <p class="amount-balance">Saldo disponível: <span>R$ 4.850,00</span></p>
+    </div>
+
+    <!-- Teclado numérico -->
+    <div class="numpad animate-fade-up delay-3">
+      <div class="numpad-grid">
+        <button class="numpad-btn" onclick="numpadInput('1')">1</button>
+        <button class="numpad-btn" onclick="numpadInput('2')">2</button>
+        <button class="numpad-btn" onclick="numpadInput('3')">3</button>
+        <button class="numpad-btn" onclick="numpadInput('4')">4</button>
+        <button class="numpad-btn" onclick="numpadInput('5')">5</button>
+        <button class="numpad-btn" onclick="numpadInput('6')">6</button>
+        <button class="numpad-btn" onclick="numpadInput('7')">7</button>
+        <button class="numpad-btn" onclick="numpadInput('8')">8</button>
+        <button class="numpad-btn" onclick="numpadInput('9')">9</button>
+        <button class="numpad-btn empty"></button>
+        <button class="numpad-btn" onclick="numpadInput('0')">0</button>
+        <button class="numpad-btn delete" onclick="numpadDelete()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+            <line x1="18" y1="9" x2="12" y2="15"/>
+            <line x1="12" y1="9" x2="18" y2="15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Botão enviar -->
+    <div class="payment-submit animate-fade-up delay-4">
+      <button class="btn-send" id="btn-send" onclick="openConfirm()" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Enviar agora
+      </button>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Modal confirmação -->
+  <div class="confirm-overlay" id="confirmModal" onclick="closeConfirm(event)">
+    <div class="confirm-modal">
+      <div class="confirm-handle"></div>
+      <div class="confirm-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </div>
+      <h2 class="confirm-title">Confirmar envio</h2>
+      <p class="confirm-subtitle">Você está prestes a realizar uma transferência. Verifique os dados antes de confirmar.</p>
+      <p class="confirm-amount" id="confirm-amount">R$ 0,00</p>
+      <p class="confirm-to">Para <span id="confirm-to">—</span></p>
+      <div class="confirm-btns">
+        <button class="btn-cancel" onclick="closeConfirm()">Cancelar</button>
+        <button class="btn-confirm" onclick="confirmPayment()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tela de sucesso -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <p class="success-amount" id="success-amount">R$ 0,00</p>
+    <h2 class="success-title">Transferência realizada!</h2>
+    <p class="success-sub">O dinheiro foi enviado com sucesso para <strong id="success-to">—</strong>.</p>
+    <button class="btn-send" style="max-width:280px; margin-top: 8px;" onclick="window.location.href='dashboard.html'">
+      Voltar ao início
+    </button>
+  </div>
+
+</div>
+
+<script>
+  let amountRaw = '';
+  let selectedContact = 'Formiguinha';
+
+  function selectContact(el, name) {
+    document.querySelectorAll('.contact-item').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    selectedContact = name;
+  }
+
+  function numpadInput(val) {
+    if (amountRaw.length >= 8) return;
+    amountRaw += val;
+    updateDisplay();
+  }
+
+  function numpadDelete() {
+    amountRaw = amountRaw.slice(0, -1);
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    const num = parseInt(amountRaw || '0');
+    const formatted = (num / 100).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    document.getElementById('amount-display').textContent = formatted;
+    document.getElementById('btn-send').disabled = num === 0;
+  }
+
+  function openConfirm() {
+    const num = parseInt(amountRaw || '0');
+    const formatted = 'R$ ' + (num / 100).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    document.getElementById('confirm-amount').textContent = formatted;
+    document.getElementById('confirm-to').textContent = selectedContact;
+    document.getElementById('confirmModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeConfirm(e) {
+    if (!e || e.target === document.getElementById('confirmModal')) {
+      document.getElementById('confirmModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function confirmPayment() {
+    const num = parseInt(amountRaw || '0');
+    const formatted = 'R$ ' + (num / 100).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    document.getElementById('confirmModal').classList.remove('active');
+    document.getElementById('success-amount').textContent = formatted;
+    document.getElementById('success-to').textContent = selectedContact;
+    setTimeout(() => {
+      document.getElementById('successOverlay').classList.add('active');
+    }, 300);
+  }
+</script>
+</body>
+</html>
