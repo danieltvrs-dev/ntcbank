@@ -38,13 +38,13 @@
         </div>
       </div>
       <div class="dash-header-right">
-        <button class="dash-icon-btn">
+        <button class="dash-icon-btn" onclick="window.location.href='transactions.html'">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-        <button class="dash-icon-btn">
+        <button class="dash-icon-btn" onclick="window.location.href='profile.html'">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
             <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
@@ -55,17 +55,17 @@
     </header>
 
     <!-- Balance Card -->
-    <div class="balance-card animate-fade-up delay-1">
+    <div class="balance-card animate-fade-up delay-1" onclick="toggleBalance()">
       <div class="balance-top">
         <span class="balance-label">Saldo disponível</span>
-        <span class="balance-eye">
+        <span class="balance-eye" id="balance-eye">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
         </span>
       </div>
-      <h2 class="balance-amount"><span>R$</span>4.850,00</h2>
+      <h2 class="balance-amount" id="balance-amount"><span>R$</span>4.850,00</h2>
       <div class="balance-footer">
         <span class="balance-account">●●●● ●●●● 4821</span>
         <span class="balance-trend">
@@ -79,7 +79,7 @@
 
     <!-- Ações rápidas -->
     <div class="quick-actions animate-fade-up delay-2">
-      <div class="action-btn">
+      <div class="action-btn" onclick="window.location.href='payment.html'">
         <div class="action-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="12" y1="5" x2="12" y2="19"/>
@@ -88,7 +88,7 @@
         </div>
         <span class="action-label">Depositar</span>
       </div>
-      <div class="action-btn">
+      <div class="action-btn" onclick="window.location.href='payment.html'">
         <div class="action-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="22" y1="2" x2="11" y2="13"/>
@@ -97,7 +97,7 @@
         </div>
         <span class="action-label">Transferir</span>
       </div>
-      <div class="action-btn">
+      <div class="action-btn" onclick="window.location.href='payment.html'">
         <div class="action-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -106,7 +106,7 @@
         </div>
         <span class="action-label">Pagar</span>
       </div>
-      <div class="action-btn">
+      <div class="action-btn" onclick="window.location.href='payment.html'">
         <div class="action-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 5v14M5 12l7 7 7-7"/>
@@ -119,7 +119,7 @@
     <!-- Gráfico -->
     <div class="section-header animate-fade-up delay-3">
       <h3 class="section-title">Gastos da semana</h3>
-      <span class="section-link">Ver detalhes</span>
+      <span class="section-link" onclick="window.location.href='transactions.html'">Ver detalhes</span>
     </div>
 
     <div class="chart-card animate-fade-up delay-3">
@@ -158,11 +158,11 @@
     <!-- Transações -->
     <div class="section-header animate-fade-up delay-4">
       <h3 class="section-title">Transações recentes</h3>
-      <span class="section-link">Ver todas</span>
+      <span class="section-link" onclick="window.location.href='transactions.html'">Ver todas</span>
     </div>
 
     <div class="transactions-list animate-fade-up delay-4">
-      <div class="transaction-item">
+      <div class="transaction-item" onclick="window.location.href='transactions.html'">
         <div class="transaction-icon">🛒</div>
         <div class="transaction-info">
           <p class="transaction-name">Supermercado</p>
@@ -170,7 +170,7 @@
         </div>
         <span class="transaction-amount debit">-R$ 187,50</span>
       </div>
-      <div class="transaction-item">
+      <div class="transaction-item" onclick="window.location.href='transactions.html'">
         <div class="transaction-icon">💼</div>
         <div class="transaction-info">
           <p class="transaction-name">Salário</p>
@@ -178,7 +178,7 @@
         </div>
         <span class="transaction-amount credit">+R$ 2.400,00</span>
       </div>
-      <div class="transaction-item">
+      <div class="transaction-item" onclick="window.location.href='transactions.html'">
         <div class="transaction-icon">⚡</div>
         <div class="transaction-info">
           <p class="transaction-name">Conta de Luz</p>
@@ -186,7 +186,7 @@
         </div>
         <span class="transaction-amount debit">-R$ 98,00</span>
       </div>
-      <div class="transaction-item">
+      <div class="transaction-item" onclick="window.location.href='transactions.html'">
         <div class="transaction-icon">🎵</div>
         <div class="transaction-info">
           <p class="transaction-name">Spotify</p>
@@ -236,5 +236,27 @@
   </nav>
 
 </div>
+
+<script>
+  let balanceVisible = true;
+
+  function toggleBalance() {
+    balanceVisible = !balanceVisible;
+    const amount = document.getElementById('balance-amount');
+    const eye = document.getElementById('balance-eye');
+    if (balanceVisible) {
+      amount.innerHTML = '<span>R$</span>4.850,00';
+      eye.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/></svg>`;
+    } else {
+      amount.innerHTML = '<span>R$</span>●●●●●';
+      eye.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+        <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+        <line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+    }
+  }
+</script>
 </body>
 </html>
