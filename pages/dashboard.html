@@ -18,7 +18,6 @@
 <body>
 <div id="app">
 
-  <!-- Fundo -->
   <div class="dash-bg">
     <div class="dash-orb dash-orb-1"></div>
     <div class="dash-orb dash-orb-2"></div>
@@ -28,7 +27,6 @@
   <div class="dashboard-screen">
   <div class="dash-content">
 
-    <!-- Header -->
     <header class="dash-header animate-fade-down">
       <div class="dash-header-left">
         <div class="dash-avatar">D</div>
@@ -38,10 +36,10 @@
         </div>
       </div>
       <div class="dash-header-right">
-        <button class="dash-icon-btn" onclick="window.location.href='transactions.html'">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <button class="dash-icon-btn" onclick="toggleTheme()">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
           </svg>
         </button>
         <button class="dash-icon-btn" onclick="window.location.href='profile.html'">
@@ -54,11 +52,10 @@
       </div>
     </header>
 
-    <!-- Balance Card -->
-    <div class="balance-card animate-fade-up delay-1" onclick="toggleBalance()">
+    <div class="balance-card animate-fade-up delay-1">
       <div class="balance-top">
         <span class="balance-label">Saldo disponível</span>
-        <span class="balance-eye" id="balance-eye">
+        <span class="balance-eye" id="balance-eye" onclick="toggleBalance()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
             <circle cx="12" cy="12" r="3"/>
@@ -77,7 +74,6 @@
       </div>
     </div>
 
-    <!-- Ações rápidas -->
     <div class="quick-actions animate-fade-up delay-2">
       <div class="action-btn" onclick="window.location.href='payment.html'">
         <div class="action-icon">
@@ -116,7 +112,6 @@
       </div>
     </div>
 
-    <!-- Gráfico -->
     <div class="section-header animate-fade-up delay-3">
       <h3 class="section-title">Gastos da semana</h3>
       <span class="section-link" onclick="window.location.href='transactions.html'">Ver detalhes</span>
@@ -155,7 +150,6 @@
       </div>
     </div>
 
-    <!-- Transações -->
     <div class="section-header animate-fade-up delay-4">
       <h3 class="section-title">Transações recentes</h3>
       <span class="section-link" onclick="window.location.href='transactions.html'">Ver todas</span>
@@ -199,7 +193,6 @@
   </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="bottom-navbar">
     <div class="nav-item active">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -237,6 +230,7 @@
 
 </div>
 
+<script src="../js/theme.js"></script>
 <script>
   let balanceVisible = true;
 
