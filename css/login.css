@@ -63,7 +63,7 @@
   width: 36px; height: 36px;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  transform: scaleY(-1);
+  transform: rotate(90deg);
 }
 
 [data-theme="light"] .login-logo-img {
