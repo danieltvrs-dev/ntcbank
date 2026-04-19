@@ -34,32 +34,33 @@ Interface completa de um banco digital moderno desenvolvida com HTML, CSS e Java
 - Deploy: Netlify | Versionamento: Git + GitHub
 
 ## 📂 Estrutura
-ntcbank/
-├── index.html
-├── pages/
-│   ├── cadastro.html
-│   ├── dashboard.html
-│   ├── transactions.html
-│   ├── card.html
-│   ├── payment.html
-│   └── profile.html
-├── css/
-│   ├── variables.css
-│   ├── reset.css
-│   ├── animations.css
-│   ├── components.css
-│   ├── login.css
-│   ├── cadastro.css
-│   ├── dashboard.css
-│   ├── transactions.css
-│   ├── card.css
-│   ├── payment.css
-│   └── profile.css
-├── js/
-│   └── theme.js
-└── assets/
-└── images/
-└── logo.png
+
+    ntcbank/
+    ├── index.html
+    ├── pages/
+    │   ├── cadastro.html
+    │   ├── dashboard.html
+    │   ├── transactions.html
+    │   ├── card.html
+    │   ├── payment.html
+    │   └── profile.html
+    ├── css/
+    │   ├── variables.css
+    │   ├── reset.css
+    │   ├── animations.css
+    │   ├── components.css
+    │   ├── login.css
+    │   ├── cadastro.css
+    │   ├── dashboard.css
+    │   ├── transactions.css
+    │   ├── card.css
+    │   ├── payment.css
+    │   └── profile.css
+    ├── js/
+    │   └── theme.js
+    └── assets/
+        └── images/
+            └── logo.png
 
 ## 👨‍💻 Autor
 **Daniel Tavares**
