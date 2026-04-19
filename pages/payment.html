@@ -54,9 +54,9 @@
     <p class="contacts-label animate-fade-up delay-1">Recentes</p>
     <div class="contacts-list animate-fade-up delay-1">
 
-      <div class="contact-item active" onclick="selectContact(this, 'Formiguinha')">
+      <div class="contact-item active" onclick="selectContact(this, 'Isabela')">
         <div class="contact-avatar" style="background: linear-gradient(135deg, #EC4899, #BE185D);">F</div>
-        <span class="contact-name">Formiguinha</span>
+        <span class="contact-name">Isabela</span>
       </div>
 
       <div class="contact-item" onclick="selectContact(this, 'Lucas')">
@@ -169,7 +169,7 @@
 
 <script>
   let amountRaw = '';
-  let selectedContact = 'Formiguinha';
+  let selectedContact = 'Isabela';
 
   function selectContact(el, name) {
     document.querySelectorAll('.contact-item').forEach(c => c.classList.remove('active'));
