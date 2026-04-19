@@ -1,0 +1,212 @@
+/* ============================================
+   NTC BANK — Cadastro (Premium)
+   ============================================ */
+
+.cadastro-screen {
+  min-height: 100dvh;
+  background: var(--bg-base);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-slow);
+}
+
+.cadastro-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.cadastro-orb-1 {
+  position: absolute; width: 280px; height: 280px;
+  top: -80px; left: -60px;
+  background: radial-gradient(circle, var(--orb-color-1) 0%, transparent 70%);
+  filter: blur(80px); border-radius: 50%;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.cadastro-orb-2 {
+  position: absolute; width: 200px; height: 200px;
+  bottom: 20%; right: -60px;
+  background: radial-gradient(circle, var(--orb-color-2) 0%, transparent 70%);
+  filter: blur(70px); border-radius: 50%;
+  animation: orbFloat 8s ease-in-out infinite; animation-delay: -3s;
+}
+
+.cadastro-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px; z-index: 0;
+}
+
+/* --- Header --- */
+.cadastro-header {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 52px 28px 0;
+}
+
+.cadastro-logo { display: flex; align-items: center; gap: 10px; }
+
+.cadastro-logo-img {
+  width: 36px; height: 36px; object-fit: contain;
+  filter: brightness(0) invert(1); transform: rotate(90deg);
+}
+[data-theme="light"] .cadastro-logo-img { filter: brightness(0); }
+
+.cadastro-logo-name {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  color: var(--text-primary); letter-spacing: -0.01em;
+}
+
+.cadastro-back {
+  width: 40px; height: 40px; border-radius: var(--radius-full);
+  background: var(--bg-glass-2); border: 1px solid var(--border-glass);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); cursor: pointer;
+  transition: all var(--transition-base);
+}
+.cadastro-back:hover { border-color: var(--border-accent); color: var(--color-petroleum-light); }
+
+/* --- Conteúdo --- */
+.cadastro-content {
+  position: relative; z-index: 2;
+  padding: 32px 28px 44px;
+  flex: 1; display: flex; flex-direction: column;
+}
+
+.cadastro-title {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+  color: var(--text-primary); line-height: 1.1;
+  letter-spacing: -0.03em; margin-bottom: 8px;
+}
+
+.cadastro-title span { color: var(--color-petroleum-light); }
+
+.cadastro-sub {
+  font-size: 0.875rem; color: var(--text-secondary);
+  line-height: 1.5; margin-bottom: 32px;
+}
+
+/* --- Steps --- */
+.cadastro-steps {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 28px;
+}
+
+.step-dot {
+  height: 4px; border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+.step-dot.active { width: 24px; background: var(--color-petroleum-light); }
+.step-dot.done   { width: 12px; background: var(--color-petroleum); }
+.step-dot.idle   { width: 12px; background: var(--border-medium); }
+
+/* --- Form --- */
+.cadastro-form {
+  background: var(--bg-glass-1);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-2xl);
+  padding: 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 20px; flex: 1;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+
+.input-label {
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary); padding-left: 2px;
+}
+
+.input-glass {
+  width: 100%; padding: 14px 16px;
+  background: var(--bg-glass-2); border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.92rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.input-glass:focus {
+  border-color: rgba(10,126,140,0.6);
+  box-shadow: 0 0 0 3px rgba(10,126,140,0.12); outline: none;
+}
+.input-glass::placeholder { color: var(--text-muted); }
+
+.input-glass-wrapper { position: relative; display: flex; align-items: center; }
+.input-glass-icon { position: absolute; left: 14px; color: var(--text-muted); pointer-events: none; }
+.input-glass-icon + .input-glass { padding-left: 44px; }
+.input-glass-action { position: absolute; right: 14px; color: var(--text-muted); cursor: pointer; transition: color var(--transition-fast); }
+.input-glass-action:hover { color: var(--text-primary); }
+
+/* --- Termos --- */
+.cadastro-terms {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;
+}
+
+.cadastro-terms input[type="checkbox"] {
+  width: 16px; height: 16px; margin-top: 1px;
+  border: 1.5px solid var(--border-medium);
+  border-radius: 4px; background: var(--bg-glass-2);
+  cursor: pointer; appearance: none; -webkit-appearance: none;
+  transition: all var(--transition-fast); flex-shrink: 0;
+}
+.cadastro-terms input[type="checkbox"]:checked {
+  background: var(--color-petroleum); border-color: var(--color-petroleum);
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center;
+}
+
+.cadastro-terms a { color: var(--color-petroleum-light); font-weight: 500; cursor: pointer; }
+
+/* --- Botão --- */
+.btn-cadastro {
+  width: 100%; padding: 16px; border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-petroleum-light), var(--color-petroleum-dark));
+  color: #fff; font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+  cursor: pointer; border: none;
+  box-shadow: var(--shadow-glow), 0 4px 16px rgba(0,0,0,0.3);
+  transition: all var(--transition-base); position: relative; overflow: hidden;
+}
+.btn-cadastro::before {
+  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+.btn-cadastro:hover::before { left: 100%; }
+.btn-cadastro:hover { box-shadow: 0 0 40px rgba(10,126,140,0.6), 0 4px 20px rgba(0,0,0,0.4); transform: translateY(-1px); }
+.btn-cadastro:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* --- Divider --- */
+.cadastro-divider {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--text-muted); font-size: 0.78rem; margin: 4px 0;
+}
+.cadastro-divider::before,
+.cadastro-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-subtle); }
+
+/* --- Footer --- */
+.cadastro-footer {
+  text-align: center; font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px;
+}
+.cadastro-footer a { color: var(--color-petroleum-light); font-weight: 600; cursor: pointer; }
+
+/* --- Sucesso --- */
+.cadastro-success {
+  position: fixed; inset: 0; background: var(--bg-base); z-index: 300;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity var(--transition-slow);
+  text-align: center; padding: 40px;
+}
+.cadastro-success.active { opacity: 1; pointer-events: all; }
+
+.success-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(34,197,94,0.15); border: 2px solid rgba(34,197,94,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-success); margin: 0 auto 24px;
+}
+
+.success-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+.success-sub { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.5; }

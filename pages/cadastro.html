@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>NTC Bank — Cadastro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/cadastro.css" />
+</head>
+<body>
+<div id="app">
+<div class="cadastro-screen">
+
+  <!-- Fundo -->
+  <div class="cadastro-bg">
+    <div class="cadastro-orb-1"></div>
+    <div class="cadastro-orb-2"></div>
+  </div>
+  <div class="cadastro-grid"></div>
+
+  <!-- Header -->
+  <div class="cadastro-header animate-fade-down">
+    <div class="cadastro-logo">
+      <img class="cadastro-logo-img" src="../assets/images/logo.png" alt="NTC Bank" />
+      <span class="cadastro-logo-name">NTC Bank</span>
+    </div>
+    <button class="cadastro-back" onclick="window.location.href='../index.html'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="cadastro-content animate-fade-up delay-1">
+
+    <h1 class="cadastro-title">Crie sua<br><span>conta</span> agora.</h1>
+    <p class="cadastro-sub">Preencha os dados abaixo para começar a usar o NTC Bank.</p>
+
+    <!-- Steps -->
+    <div class="cadastro-steps">
+      <div class="step-dot active" id="step-1"></div>
+      <div class="step-dot idle" id="step-2"></div>
+      <div class="step-dot idle" id="step-3"></div>
+    </div>
+
+    <!-- Formulário -->
+    <form class="cadastro-form" onsubmit="handleCadastro(event)">
+
+      <!-- Step 1: Dados pessoais -->
+      <div id="form-step-1">
+        <div class="form-row" style="margin-bottom: 0;">
+          <div class="input-group">
+            <label class="input-label">Nome</label>
+            <div class="input-glass-wrapper">
+              <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <input class="input-glass" type="text" placeholder="João" id="nome" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Sobrenome</label>
+            <input class="input-glass" type="text" placeholder="Silva" id="sobrenome" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">CPF</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <input class="input-glass" type="text" placeholder="000.000.000-00" id="cpf" maxlength="14" oninput="maskCPF(this)" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Data de nascimento</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <input class="input-glass" type="text" placeholder="DD/MM/AAAA" id="nascimento" maxlength="10" oninput="maskDate(this)" />
+          </div>
+        </div>
+
+        <button type="button" class="btn-cadastro" onclick="nextStep(2)">Continuar</button>
+      </div>
+
+      <!-- Step 2: Contato -->
+      <div id="form-step-2" style="display:none;">
+        <div class="input-group">
+          <label class="input-label">E-mail</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <input class="input-glass" type="email" placeholder="joao@email.com" id="email" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Telefone</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <input class="input-glass" type="text" placeholder="(00) 00000-0000" id="telefone" maxlength="15" oninput="maskPhone(this)" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Chave PIX</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="13 17 18 12 13 7"/>
+              <polyline points="6 17 11 12 6 7"/>
+            </svg>
+            <input class="input-glass" type="text" placeholder="CPF, e-mail ou telefone" id="pix" />
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="btn-cadastro" style="background: var(--bg-glass-3); box-shadow: none; color: var(--text-primary);" onclick="nextStep(1)">Voltar</button>
+          <button type="button" class="btn-cadastro" onclick="nextStep(3)">Continuar</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Senha -->
+      <div id="form-step-3" style="display:none;">
+        <div class="input-group">
+          <label class="input-label">Senha</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input class="input-glass" type="password" placeholder="Mínimo 8 caracteres" id="senha" />
+            <span class="input-glass-action" onclick="togglePass('senha')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Confirmar senha</label>
+          <div class="input-glass-wrapper">
+            <svg class="input-glass-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input class="input-glass" type="password" placeholder="Repita a senha" id="confirma-senha" />
+            <span class="input-glass-action" onclick="togglePass('confirma-senha')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <label class="cadastro-terms">
+          <input type="checkbox" id="termos" />
+          Eu concordo com os <a>Termos de Uso</a> e a <a>Política de Privacidade</a> do NTC Bank.
+        </label>
+
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="btn-cadastro" style="background: var(--bg-glass-3); box-shadow: none; color: var(--text-primary);" onclick="nextStep(2)">Voltar</button>
+          <button type="submit" class="btn-cadastro">Criar conta</button>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="cadastro-divider">ou</div>
+    <p class="cadastro-footer">Já tem conta? <a onclick="window.location.href='../index.html'">Entrar</a></p>
+
+  </div>
+
+  <!-- Tela de sucesso -->
+  <div class="cadastro-success" id="cadastro-success">
+    <div class="success-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2 class="success-title">Conta criada!</h2>
+    <p class="success-sub">Sua conta foi criada com sucesso.<br>Bem-vindo ao NTC Bank!</p>
+    <button class="btn-cadastro" style="max-width:280px;" onclick="window.location.href='../index.html'">
+      Fazer login
+    </button>
+  </div>
+
+</div>
+</div>
+
+<script src="../js/theme.js"></script>
+<script>
+  function nextStep(step) {
+    document.getElementById('form-step-1').style.display = 'none';
+    document.getElementById('form-step-2').style.display = 'none';
+    document.getElementById('form-step-3').style.display = 'none';
+    document.getElementById('form-step-' + step).style.display = 'contents';
+
+    ['step-1','step-2','step-3'].forEach((id, i) => {
+      const dot = document.getElementById(id);
+      dot.className = 'step-dot';
+      if (i + 1 < step) dot.classList.add('done');
+      else if (i + 1 === step) dot.classList.add('active');
+      else dot.classList.add('idle');
+    });
+  }
+
+  function handleCadastro(e) {
+    e.preventDefault();
+    const senha = document.getElementById('senha').value;
+    const confirma = document.getElementById('confirma-senha').value;
+    const termos = document.getElementById('termos').checked;
+
+    if (senha !== confirma) { alert('As senhas não coincidem!'); return; }
+    if (!termos) { alert('Aceite os termos para continuar.'); return; }
+
+    document.getElementById('cadastro-success').classList.add('active');
+  }
+
+  function togglePass(id) {
+    const input = document.getElementById(id);
+    input.type = input.type === 'password' ? 'text' : 'password';
+  }
+
+  function maskCPF(input) {
+    let v = input.value.replace(/\D/g, '');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    input.value = v;
+  }
+
+  function maskDate(input) {
+    let v = input.value.replace(/\D/g, '');
+    v = v.replace(/(\d{2})(\d)/, '$1/$2');
+    v = v.replace(/(\d{2})(\d)/, '$1/$2');
+    input.value = v;
+  }
+
+  function maskPhone(input) {
+    let v = input.value.replace(/\D/g, '');
+    v = v.replace(/^(\d{2})(\d)/, '($1) $2');
+    v = v.replace(/(\d{5})(\d)/, '$1-$2');
+    input.value = v;
+  }
+</script>
+</body>
+</html>
