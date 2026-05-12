@@ -1,4 +1,4 @@
-# 🏦 NTC Bank — Simulador de Banco Digital
+# 🏦 NTC Bank | Simulador de Banco Digital
 
 Interface completa de um banco digital moderno desenvolvida com HTML, CSS e JavaScript puro.
 
